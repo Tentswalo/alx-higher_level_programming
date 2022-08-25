@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import hidden_4
-    all_dir = dir(hidden_4)
-    for name in names:
-        if name[:2] != "__":
-            print(name)
+    from hidden_4 import *
+    for s in dir():
+        if s[:2] != "__":
+            print("{}".format(s))
+
