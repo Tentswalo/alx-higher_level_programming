@@ -5,3 +5,4 @@ def divisible_by_2(my_list=[]):
         for elm in my_list:
             new_lsit.append(False if elm % 2 else True)
     return (new_list)
+return (my_list)
