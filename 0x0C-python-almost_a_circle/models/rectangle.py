@@ -2,7 +2,7 @@
 """
 Contains the "Rectangle" class
 """
-import JSON
+
 from models.base import Base
 
 
@@ -18,27 +18,27 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """The width of the rectangle"""
+        """getter of width"""
         return self.__width
 
     @property
     def height(self):
-        """The height of the rectangle"""
+        """getter of height"""
         return self.__height
 
     @property
     def x(self):
-        """The x coordinate of the rectangle"""
+        """getter of x"""
         return self.__x
 
     @property
     def y(self):
-        """The y coordinate of the rectangle"""
+        """getter of y"""
         return self.__y
 
     @width.setter
     def width(self, value):
-        """Setting the width of the rectangle"""
+        """setter of width"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -47,7 +47,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        """Setting the height of the rectangle"""
+        """setter of height"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -56,7 +56,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """Setting the x coordinate of the rectangle"""
+        """setter of x"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -65,7 +65,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """Setting the y coordinate of the rectangle"""
+        """setter of y"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -78,18 +78,17 @@ class Rectangle(Base):
 
     def display(self):
         """print a display of the rectangle"""
-        for i in range(self.y):
-            print()
-        for i in range(self.height):
-            print(" " * self.x + "#" * self.width)
+        print(("\n" * self.__y) +
+              "\n".join(((" " * self.__x) + ("#" * self.__width))
+                        for i in range(self.__height)))
 
     def __str__(self):
         """informal string representation of the rectangle"""
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
-                                                                 self.x,
-                                                                 self.y,
-                                                                 self.width,
-                                                                 self.height)
+                                                                 self.__x,
+                                                                 self.__y,
+                                                                 self.__width,
+                                                                 self.__height)
 
     def update(self, *args, **kwargs):
         """updates multiple attributes"""
