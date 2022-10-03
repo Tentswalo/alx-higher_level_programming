@@ -38,7 +38,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """setter of width"""
+        """Setting the width of the rectangle"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -47,7 +47,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        """setter of height"""
+        """Setting the height of the rectangle"""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -56,7 +56,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """setter of x"""
+        """Setting the x coordinate of the rectangle"""
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -65,7 +65,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """setter of y"""
+        """Setting the y coordinate of the rectangle"""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -78,17 +78,18 @@ class Rectangle(Base):
 
     def display(self):
         """print a display of the rectangle"""
-        print(("\n" * self.__y) +
-              "\n".join(((" " * self.__x) + ("#" * self.__width))
-                        for i in range(self.__height)))
+        for i in range(self.y):
+            print()
+        for i in range(self.height):
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """informal string representation of the rectangle"""
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
-                                                                 self.__x,
-                                                                 self.__y,
-                                                                 self.__width,
-                                                                 self.__height)
+                                                                 self.x,
+                                                                 self.y,
+                                                                 self.width,
+                                                                 self.height)
 
     def update(self, *args, **kwargs):
         """updates multiple attributes"""
