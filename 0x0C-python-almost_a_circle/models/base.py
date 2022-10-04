@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module contains the Base class
+This module contains the "Base" class
 """
 
 import csv
@@ -9,7 +9,7 @@ import turtle
 
 
 class Base:
-    """Defining class Base"""
+    """A base class"""
     __nb_objects = 0
 
     def __init__(self, id=None):
