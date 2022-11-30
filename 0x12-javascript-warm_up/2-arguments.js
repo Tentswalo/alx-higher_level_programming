@@ -1,11 +1,11 @@
 #!/usr/bin/node
-/* script that prints a message depending
-of the number of arguments passed */
-const numArgv = process.argv.length;
-if (numArgv < 3) {
+// JS to check arguments passed into script
+'use strict';
+let len = process.argv.length;
+if (len < 3) {
   console.log('No argument');
-} else if (numArgv === 3) {
-  console.log('Argument found');
-} else {
+} else if (len > 3) {
   console.log('Arguments found');
+} else {
+  console.log('Argument found');
 }
